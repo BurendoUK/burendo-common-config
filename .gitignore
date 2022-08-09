@@ -12,3 +12,4 @@
 # generated files
 *.iml
 .idea/
+.terraform.lock.hcl

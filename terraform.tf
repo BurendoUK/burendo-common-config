@@ -24,6 +24,12 @@ locals {
 
   admin_team = 5127148
 
+  tags = {
+    Environment = local.environment
+    Company     = "Burendo"
+    Practice    = "Engineering"
+  }
+
 }
 
 variable "assume_role" {

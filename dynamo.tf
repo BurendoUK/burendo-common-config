@@ -8,4 +8,5 @@ resource "aws_dynamodb_table" "terraform_state_lock" {
     name = "LockID"
     type = "S"
   }
+  tags = merge(local.tags, { Name = "terraform-state-lock" })
 }

@@ -2,11 +2,7 @@ resource "aws_s3_bucket" "terraform_state" {
 
   bucket = "burendo-terraform-state"
 
-  tags = {
-    Name     = "burendo-terraform-state"
-    Company  = "Burendo"
-    Practice = "Engineering"
-  }
+  tags = merge(local.tags, { Name = "burendo-terraform-state" })
 
 }
 
