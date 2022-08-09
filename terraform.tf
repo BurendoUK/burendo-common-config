@@ -7,6 +7,7 @@ terraform {
     region         = "eu-west-2"
     encrypt        = false
     dynamodb_table = "terraform-state-lock"
+    kms_key_id     = "alias/burendo-common-config/terraform-state-key"
   }
 
   required_providers {
