@@ -7,7 +7,7 @@ This is configuration that those services can them individually consume, rather 
 ## Usage
 
 ### First run
-`pip3 install boto3 Jinja2 PyYAML`
+`pip3 install -r requirements.txt`
 
 ### Bootstrap
 
