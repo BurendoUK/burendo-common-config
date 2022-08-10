@@ -1,10 +1,8 @@
 locals {
   environment = terraform.workspace == "default" ? "burendo-prod" : terraform.workspace
   account = {
-    "burendo-prod" = "936130398903"
+    "burendo-prod" = "{{terraform.aws_production_acc}}"
   }
-
-  admin_team = 5127148
 
   tags = {
     Environment = local.environment
