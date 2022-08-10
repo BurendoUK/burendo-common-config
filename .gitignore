@@ -15,6 +15,6 @@
 .terraform.lock.hcl
 
 # bootstrap generated files
-terraform.tf
-locals.tf
-variables.tf
+**/terraform.tf
+**/locals.tf
+**/variables.tf
