@@ -13,3 +13,8 @@
 *.iml
 .idea/
 .terraform.lock.hcl
+
+# bootstrap generated files
+terraform.tf
+locals.tf
+variables.tf
