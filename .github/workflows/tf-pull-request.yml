@@ -39,7 +39,7 @@ jobs:
         id: bootstrap
         run: |
           python bootstrap.py
-          sed -i '/^assume_role/ d' terraform.tfvars
+          sed -i '/^assume_role/ d' variables.tf
         working-directory: .
         env:
           TF_WORKSPACE: default
