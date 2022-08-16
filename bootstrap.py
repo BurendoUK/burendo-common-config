@@ -33,15 +33,10 @@ def main():
 
     config_data = yaml.load(terraform_secret['SecretBinary'], Loader=yaml.FullLoader)
     config_data['terraform'] = json.loads(terraform_secret['SecretBinary'])["terraform"]
-    config_data['github'] = json.loads(github_secret['SecretBinary'])["github"]
 
     with open("terraform.tf.j2") as in_template:
         template = jinja2.Template(in_template.read())
     with open("terraform.tf", "w+") as terraform_tf:
-        terraform_tf.write(template.render(config_data))
-    with open("terraform.tfvars.j2") as in_template: 
-        template = jinja2.Template(in_template.read())
-    with open("terraform.tfvars", "w+") as terraform_tf:
         terraform_tf.write(template.render(config_data))
     with open("variables.tf.j2") as in_template:
         template = jinja2.Template(in_template.read())
