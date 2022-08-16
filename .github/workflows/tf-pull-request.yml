@@ -58,7 +58,6 @@ jobs:
         continue-on-error: false
         env:
           TF_WORKSPACE: default
-          TF_VAR_assume_role: ${var.assume_role}
           AWS_DEFAULT_REGION: eu-west-2
 
       - name: "Redact Logs PROD PR"
