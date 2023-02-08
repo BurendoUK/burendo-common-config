@@ -4,6 +4,8 @@ The repository holds configuration for infrastructure which is common amongst ma
 
 This is configuration that those services can them individually consume, rather than recreating many copies of the same configuration which have to be maintained.
 
+This includes shared S3 buckets, KMS keys, DynamoDB instances and ECR repositories.
+
 ## Usage
 
 ### First run
