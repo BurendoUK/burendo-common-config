@@ -25,3 +25,9 @@ provider "aws" {
     role_arn = "arn:aws:iam::${lookup(local.account, local.environment)}:role/${var.assume_role}"
   }
 }
+
+provider "aws" {
+  # Required for Apprunner
+  alias   = "eire"
+  region = "eu-west-1"
+}
