@@ -5,6 +5,7 @@ resource "awscc_chatbot_slack_channel_configuration" "burendo_alerts_to_slack" {
   slack_workspace_id = local.burendo_slack_workspace_id
   sns_topic_arns     = [aws_sns_topic.burendo_alerts_topic.arn]
   logging_level      = "INFO"
+  guardrail_policies = ["arn:aws:iam::aws:policy/AdministratorAccess"]
 }
 
 resource "aws_iam_role" "chatbot_burendo_alerts_to_slack" {
