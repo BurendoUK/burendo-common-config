@@ -70,17 +70,19 @@ jobs:
           set -e
           aws ssm terminate-session --session-id ${{ github.run_id }}-${{ github.run_number }}
 
-      - name: "Redact Logs PROD PR"
-        if: steps.plan.conclusion == 'failure'
-        id: redact-logs-prod-pr
+      - name: "Redact Logs PR"
+        if: ${{ always() }}
+        id: redact-logs-pr
         run: |
               sed -i "s/$ACC_PROD/REDACTED/g" ${{ github.workspace }}/${{ github.run_id }}-${{ github.run_number }}.log
         shell: bash
         env:
           ACC_PROD: ${{ secrets.AWS_GHA_ACC_PROD }}
 
-      - uses: actions/upload-artifact@v2
-        if: steps.redact-logs-prod-pr.conclusion == 'success'
+      - name: "Upload Plan log"
+        uses: actions/upload-artifact@v2
+        id: upload-plan-log
+        if: ${{ failure() }}
         with:
-          name: prod-workflow-log
+          name: pr-workflow-log
           path: ${{ github.workspace }}/${{ github.run_id }}-${{ github.run_number }}.log

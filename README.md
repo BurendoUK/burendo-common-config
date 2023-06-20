@@ -6,6 +6,12 @@ This is configuration that those services can them individually consume, rather 
 
 This includes shared S3 buckets, KMS keys, DynamoDB instances and ECR repositories.
 
+## Slack alerting
+
+This repository creates an SNS topic called `[environment]-burendo-alerts`. If something is sent to this topic then it makes it way through AWS Chatbot and to the Burendo slack channel `#practice-engineering-notifications`.
+
+To use this topic in your repo, import common infra repo as a `terraform_remote_state` data object and use the output `sns_topic_alerts_to_slack`.
+
 ## Usage
 
 ### First run
